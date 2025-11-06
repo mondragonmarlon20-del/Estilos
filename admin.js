@@ -5,7 +5,7 @@
     sales: "estilos_sales"
   };
 
-  const ADMIN_PASSWORD = "admin123";
+  const ADMIN_PASSWORD = "admin1506";
 
   let config = {
     name: "Estilos",
