@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Estilos · Panel administrador</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header admin">
+    <div>
+      <h1>Estilos · Panel</h1>
+      <p class="subtitle">Solo para configuración. No compartir con clientes.</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="login-panel" class="view active">
+      <div class="card">
+        <h2>Acceso administrador</h2>
+        <p class="subtitle">Protección básica solo en el navegador. Para seguridad real se requiere backend.</p>
+        <div class="field">
+          <label>Contraseña</label>
+          <input type="password" id="admin-password">
+        </div>
+        <button id="btn-login" class="primary">Entrar</button>
+        <p class="helper tiny">
+          Contraseña por defecto: <code>admin123</code> (puedes cambiarla en el código de <strong>admin.js</strong>).
+        </p>
+      </div>
+    </section>
+
+    <section id="admin-panel" class="view hidden">
+      <!-- CONFIGURACIÓN GENERAL -->
+      <div class="card">
+        <h2>Configuración de la tienda</h2>
+        <form id="form-config">
+          <div class="field">
+            <label>Nombre del sitio</label>
+            <input type="text" id="cfg-name">
+          </div>
+          <div class="field">
+            <label>Mensaje de bienvenida</label>
+            <textarea id="cfg-welcome" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>Color principal (ej: #ec4899)</label>
+            <input type="text" id="cfg-color-primary">
+          </div>
+          <div class="field">
+            <label>Color secundario (ej: #1f2937)</label>
+            <input type="text" id="cfg-color-secondary">
+          </div>
+          <div class="field">
+            <label>Música de fondo (URL mp3 opcional)</label>
+            <input type="text" id="cfg-music-url">
+          </div>
+          <div class="field">
+            <label>Correo para contactos</label>
+            <input type="email" id="cfg-email">
+          </div>
+          <div class="field">
+            <label>Número de WhatsApp (con código país, sin signos)</label>
+            <input type="tel" id="cfg-whatsapp">
+          </div>
+          <div class="field">
+            <label>Moneda (ej: L., $, MXN)</label>
+            <input type="text" id="cfg-currency">
+          </div>
+          <button class="primary" type="submit">Guardar configuración</button>
+        </form>
+      </div>
+
+      <!-- PRODUCTOS -->
+      <div class="card">
+        <h2>Productos</h2>
+        <form id="form-product">
+          <input type="hidden" id="prod-id">
+          <div class="field">
+            <label>Nombre</label>
+            <input type="text" id="prod-name" required>
+          </div>
+          <div class="field">
+            <label>Precio</label>
+            <input type="number" step="0.01" id="prod-price" required>
+          </div>
+          <div class="field">
+            <label>Stock</label>
+            <input type="number" id="prod-stock" required>
+          </div>
+          <div class="field">
+            <label>Categoría</label>
+            <input type="text" id="prod-category">
+          </div>
+          <div class="field">
+            <label>Colores / estilos (separados por coma)</label>
+            <input type="text" id="prod-colors">
+          </div>
+          <div class="field">
+            <label>Descripción corta</label>
+            <textarea id="prod-short" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label>Descripción detallada</label>
+            <textarea id="prod-long" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label>Imagen principal (URL)</label>
+            <input type="text" id="prod-main-img">
+          </div>
+          <div class="field">
+            <label>Imágenes extra (URLs separadas por coma)</label>
+            <input type="text" id="prod-extra-imgs">
+          </div>
+          <div class="field">
+            <label>Descuento % (0 si no aplica)</label>
+            <input type="number" step="1" id="prod-discount">
+          </div>
+          <div class="field">
+            <label>Inicio oferta (YYYY-MM-DD opcional)</label>
+            <input type="date" id="prod-offer-start">
+          </div>
+          <div class="field">
+            <label>Fin oferta (YYYY-MM-DD opcional)</label>
+            <input type="date" id="prod-offer-end">
+          </div>
+          <div class="button-row">
+            <button class="primary" type="submit">Guardar / actualizar producto</button>
+            <button class="ghost" type="button" id="btn-clear-product">Limpiar formulario</button>
+            <button class="danger" type="button" id="btn-delete-product">Eliminar producto</button>
+          </div>
+        </form>
+        <h3>Listado</h3>
+        <table id="table-products">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Precio</th>
+              <th>Stock</th>
+              <th>Categoría</th>
+              <th>Oferta</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- REGISTRO DE VENTAS (BÁSICO) -->
+      <div class="card">
+        <h2>Registro básico de pedidos</h2>
+        <p class="helper tiny">
+          Estos registros se guardan solo en este navegador como ejemplo. Para uso real debe conectarse a una base de datos.
+        </p>
+        <table id="table-sales">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Cliente</th>
+              <th>Productos</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <small>Estilos · Panel administrador</small>
+  </footer>
+
+  <script src="admin.js"></script>
+</body>
+</html>

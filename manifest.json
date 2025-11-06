@@ -1,0 +1,9 @@
+{
+  "name": "Estilos",
+  "short_name": "Estilos",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#ec4899",
+  "icons": []
+}

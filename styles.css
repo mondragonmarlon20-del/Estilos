@@ -1,0 +1,429 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #ec4899, #8b5cf6);
+  color: white;
+  padding: 0.85rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.app-header.admin {
+  background: #111827;
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.subtitle {
+  margin: 0.15rem 0 0;
+  font-size: 0.8rem;
+  opacity: 0.9;
+}
+
+.icon-button {
+  border: none;
+  background: rgba(17, 24, 39, 0.15);
+  color: white;
+  border-radius: 999px;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+.icon-button:active {
+  opacity: 0.8;
+}
+
+#cart-count {
+  background: #fbbf24;
+  color: #111827;
+  border-radius: 999px;
+  padding: 0 0.3rem;
+  margin-left: 0.25rem;
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  background: #111827;
+}
+
+.tab {
+  flex: 1;
+  padding: 0.55rem;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  font-size: 0.9rem;
+}
+
+.tab.active {
+  color: #ec4899;
+  border-bottom: 2px solid #ec4899;
+}
+
+main {
+  padding: 0.75rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.view {
+  display: none;
+}
+
+.view.active {
+  display: block;
+}
+
+.view.hidden {
+  display: none;
+}
+
+.card {
+  background: white;
+  border-radius: 0.75rem;
+  padding: 0.8rem 0.9rem;
+  margin: 0.6rem 0 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.card.tiny {
+  font-size: 0.8rem;
+}
+
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.hero h2 {
+  margin-top: 0;
+}
+
+.hero-actions {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.steps {
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.55rem;
+}
+
+label {
+  font-size: 0.8rem;
+  margin-bottom: 0.18rem;
+  color: #374151;
+}
+
+input, select, textarea {
+  padding: 0.35rem 0.45rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.primary {
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+.primary.fullwidth {
+  width: 100%;
+  text-align: center;
+}
+
+.ghost {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+.danger {
+  background: #b91c1c;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+}
+
+button:active {
+  opacity: 0.85;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.product-card {
+  background: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-body {
+  padding: 0.55rem 0.7rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.product-name {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.product-price {
+  font-weight: 600;
+  color: #16a34a;
+}
+
+.product-meta {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.4rem;
+  margin-top: 0.35rem;
+}
+
+.badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.badge.future {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.cart-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 320px;
+  max-width: 100%;
+  height: 100%;
+  background: white;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+  transform: translateX(100%);
+  transition: transform 0.2s ease-out;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 40;
+}
+
+.cart-panel.open {
+  transform: translateX(0);
+}
+
+.cart-panel header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.35rem 0;
+}
+
+.cart-item-title {
+  font-weight: 600;
+}
+
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.cart-qty button {
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  padding: 0 0.3rem;
+  font-size: 0.8rem;
+  background: white;
+}
+
+#cart-summary {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+}
+
+#cart-summary strong {
+  font-size: 0.95rem;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15,23,42,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  max-width: 520px;
+  width: calc(100% - 1.5rem);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.helper {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.helper.tiny {
+  font-size: 0.75rem;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+#chat-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#chat-messages {
+  max-height: 260px;
+  overflow-y: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  padding: 0.4rem;
+  background: #f9fafb;
+}
+
+.chat-msg {
+  margin-bottom: 0.35rem;
+  font-size: 0.85rem;
+}
+
+.chat-msg.user {
+  text-align: right;
+}
+
+.chat-msg.agent span {
+  display: inline-block;
+  background: #111827;
+  color: white;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+.chat-msg.user span {
+  display: inline-block;
+  background: #ec4899;
+  color: white;
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+}
+
+#chat-form {
+  display: flex;
+  gap: 0.4rem;
+}
+
+#chat-input {
+  flex: 1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+th, td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0.35rem;
+  text-align: left;
+}
+
+th {
+  background: #f9fafb;
+}
+
+footer {
+  text-align: center;
+  padding: 0.5rem;
+  font-size: 0.75rem;
+  color: #6b7280;
+}

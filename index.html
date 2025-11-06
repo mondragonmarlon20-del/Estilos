@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Estilos · Tienda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ec4899">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1 id="site-title">Estilos</h1>
+      <p class="subtitle">Catálogo, ofertas y pedidos sin pago en línea</p>
+    </div>
+    <button id="btn-cart" class="icon-button" aria-label="Ver carrito">
+      🛒 <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <nav class="tabs">
+    <button data-view="home" class="tab active">Inicio</button>
+    <button data-view="productos" class="tab">Productos</button>
+    <button data-view="ofertas" class="tab">Ofertas</button>
+    <button data-view="ayuda" class="tab">Agente IA</button>
+  </nav>
+
+  <main>
+    <!-- HOME -->
+    <section id="view-home" class="view active">
+      <div class="hero card">
+        <h2>Bienvenido a Estilos</h2>
+        <p id="site-welcome">
+          Descubre productos, revisa detalles y haz tu pedido. El pago se realiza solo al recibir el producto.
+        </p>
+        <div class="hero-actions">
+          <button class="primary" data-goto="productos">Ver productos</button>
+          <button class="ghost" data-goto="ofertas">Ver ofertas del momento</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3>¿Cómo funciona?</h3>
+        <ol class="steps">
+          <li>Explora productos y agrega al carrito.</li>
+          <li>Confirma tu pedido con tus datos de entrega.</li>
+          <li>El vendedor te contacta por WhatsApp o correo.</li>
+          <li>Pagas solo al recibir el producto.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section id="view-productos" class="view">
+      <div class="card header-row">
+        <h2>Productos</h2>
+        <input type="search" id="search-products" placeholder="Buscar por nombre, color o categoría">
+      </div>
+      <div id="product-list" class="grid"></div>
+    </section>
+
+    <!-- OFERTAS -->
+    <section id="view-ofertas" class="view">
+      <div class="card header-row">
+        <h2>Ofertas</h2>
+        <p class="subtitle">Ofertas activas y próximas</p>
+      </div>
+      <div id="offers-active" class="grid"></div>
+      <div class="card">
+        <h3>Próximas ofertas</h3>
+        <div id="offers-future" class="grid"></div>
+      </div>
+    </section>
+
+    <!-- AYUDA IA -->
+    <section id="view-ayuda" class="view">
+      <div class="card">
+        <h2>Agente IA de Estilos</h2>
+        <p class="subtitle">
+          Pregunta sobre productos, precios, colores o diseños. Respuestas cortas y directas.
+        </p>
+        <div id="chat-box">
+          <div id="chat-messages"></div>
+          <form id="chat-form">
+            <input type="text" id="chat-input" placeholder="Ej: ¿qué colores hay en la camiseta básica?" autocomplete="off">
+            <button type="submit" class="primary">Enviar</button>
+          </form>
+        </div>
+      </div>
+      <div class="card tiny">
+        <p>
+          Nota: Este agente responde basado en el catálogo cargado. Para una IA avanzada
+          puedes conectar esta página a una API externa en el futuro.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- PANEL CARRITO -->
+  <aside id="cart-panel" class="cart-panel">
+    <header>
+      <h2>Carrito</h2>
+      <button id="close-cart" class="icon-button">✖</button>
+    </header>
+    <div id="cart-items"></div>
+    <div id="cart-summary"></div>
+    <button id="btn-checkout" class="primary fullwidth">Hacer pedido</button>
+  </aside>
+
+  <!-- MODAL PEDIDO -->
+  <div id="modal-checkout" class="modal hidden">
+    <div class="modal-content card">
+      <header class="modal-header">
+        <h2>Datos para el pedido</h2>
+        <button class="icon-button" id="close-modal-checkout">✖</button>
+      </header>
+      <form id="checkout-form">
+        <div class="field">
+          <label>Nombre completo</label>
+          <input type="text" id="order-name" required>
+        </div>
+        <div class="field">
+          <label>WhatsApp / Teléfono</label>
+          <input type="tel" id="order-phone" required>
+        </div>
+        <div class="field">
+          <label>Correo electrónico</label>
+          <input type="email" id="order-email">
+        </div>
+        <div class="field">
+          <label>Dirección de entrega</label>
+          <textarea id="order-address" rows="2" required></textarea>
+        </div>
+        <div class="field">
+          <label>Notas adicionales</label>
+          <textarea id="order-notes" rows="2"></textarea>
+        </div>
+        <button type="submit" class="primary fullwidth">Confirmar pedido</button>
+      </form>
+      <p class="helper">
+        No se realiza ningún pago en línea. El vendedor confirmará tu pedido y pagarás al recibir.
+      </p>
+    </div>
+  </div>
+
+  <!-- MODAL DETALLE PRODUCTO -->
+  <div id="modal-product" class="modal hidden">
+    <div class="modal-content card">
+      <header class="modal-header">
+        <h2 id="modal-product-name"></h2>
+        <button class="icon-button" id="close-modal-product">✖</button>
+      </header>
+      <div id="modal-product-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <small>Estilos · Pedidos sin pago en línea · <a href="admin.html">Panel administrador</a></small>
+  </footer>
+
+  <script src="store.js"></script>
+</body>
+</html>
